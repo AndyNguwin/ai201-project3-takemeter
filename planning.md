@@ -22,9 +22,9 @@ Some reviews are highly detailed and analytical, while others are short emotiona
 
 This classifier uses the following labels:
 
-### Label 1: Positive / Recommend
+### Label 1: Positive
 
-A review is labeled **Positive / Recommend** if its overall message indicates that the reviewer recommends the game to others, typically emphasizing enjoyable gameplay, satisfying features, or a worthwhile experience despite minor flaws.
+A review is labeled **Positive** if the overall review expresses satisfaction, enjoyment, or favorable opinions toward the game, even if minor criticisms are present.
 
 #### Example Reviews
 
@@ -38,9 +38,9 @@ A review is labeled **Positive / Recommend** if its overall message indicates th
 
 ---
 
-### Label 2: Negative / Not Recommend
+### Label 2: Negative
 
-A review is labeled **Negative / Not Recommend** if its overall message indicates that the reviewer does not recommend the game to others, typically emphasizing major flaws such as poor gameplay, technical issues, monetization concerns, or an unsatisfying experience.
+A review is labeled **Negative** if the overall review expresses dissatisfaction, frustration, or unfavorable opinions toward the game, even if some positive aspects are acknowledged.
 
 #### Example Reviews
 
@@ -54,11 +54,11 @@ A review is labeled **Negative / Not Recommend** if its overall message indicate
 
 ## Hard Edge Cases
 
-Some reviews are genuinely ambiguous between the two labels because Steam reviews can sometimes contain mixed sentiment. Reviews can talk about both the good and bad of a game or a user can state they love while pointing out a bad issue they faced.
+Some reviews are genuinely ambiguous between the two labels because Steam reviews can sometimes contain mixed sentiment. Reviews can talk about both the good and bad of a game or a user can state they love/dislike the game while pointing out positive experiences/bad issues they faced. Other hard edge cases are when the review provides off-topic information or "meme"/"troll" reviews that have no sentiment.
 
 ### Example Ambiguous Review
 
-  > "I love this game, but please please fix it so it works on steam deck - I was so excited to finally play via steam"
+  > "I love this game, but please please fix it so it works on steam deck - I was so excited to finally play via steam" (User labeled review as Positive)
 
 ### Ambiguous Annotation Rule
 If the reviewer ultimately appears to recommend the game despite flaws, it will be labeled Positive; otherwise, it will be labeled Negative.
