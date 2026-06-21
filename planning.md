@@ -54,19 +54,21 @@ A review is labeled **Negative** if the overall review expresses dissatisfaction
 
 ## Hard Edge Cases
 
-Some reviews are genuinely ambiguous between the two labels because Steam reviews can sometimes contain mixed sentiment. Reviews can talk about both the good and bad of a game or a user can state they love/dislike the game while pointing out positive experiences/bad issues they faced. Other hard edge cases are when the review provides off-topic information or "meme"/"troll" reviews that have no sentiment.
+Some reviews are genuinely ambiguous between the two labels because Steam reviews can sometimes contain mixed sentiment. Reviews can talk about both the good and bad of a game or a user can state they love/dislike the game while pointing out positive experiences/bad issues they faced.
 
 ### Example Ambiguous Review
 
   > "I love this game, but please please fix it so it works on steam deck - I was so excited to finally play via steam" (User labeled review as Positive)
 
 ### Ambiguous Annotation Rule
-If the reviewer ultimately appears to recommend the game despite flaws, it will be labeled Positive; otherwise, it will be labeled Negative.
+As stated in the taxonomy defined earlier:
+- If the general review is positive despite pointing out flaws or criticisms, the review will be labeled as Positive.
+- If the general review is negative despite pointing out highlights or enjoyable experiences, the review will be labeled as Negative.
 
 ## Data Collection Plan
 
 - I will scrape 200 total reviews of Wuthering Waves on the Steam page. Each review will be English only and cleaned to have no odd, non-ASCII characters and reviews must be text-only. Because reviews are always categorized as "Positive" and "Negative", I can filter the scraping to scrape 100 of each label to avoid class imbalances in my dataset.
-- Because the reviews already come with labels that are provided by the users when writing the reviews, I won't be manually labelling the reviews myself. However, I will still read through each review to note done which reviews may be an ambiguous case that I think the classifier will struggle on. These will usually be when the text itself provides both positive and negative points OR low-quality/"meme"/"troll" content that provide no clear sentiment.
+- Because the reviews already come with labels that are provided by the users when writing the reviews, I won't be manually labelling the reviews myself. However, I will still read through each review to note done which reviews may be an ambiguous case that I think the classifier will struggle on, such as reviews that mentions both positive and negative talking points.
 
 ## Evaluation Metrics
 For evaluation, it's important to have the overall accuracy but also **precision**, **recall**, and **F1 score**. Extra metrics such as **precision**, **recall**, and **F1 score** provides extra details regarding the accuracy of the model, allowing us to understand what mistakes the model makes when classifying.
