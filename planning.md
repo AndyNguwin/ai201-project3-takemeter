@@ -94,4 +94,5 @@ In my opinion, 75% is what I would consider an acceptable threshold, similar to 
   - Recall >= 0.85
 
 ## AI Tool Plan
-
+- **Label Stress Test**: I'll give Claude my Labels section in the ``planning.md`` to stress test my label definitions by providing me example reviews that are ambiguous. I will then try to classify them myself using my labels to decide if I need to clarify/tighten the label definitions even more.
+- **Data Collection & Annotation Assistance**: I'll give Claude my ``planning.md``, specifically the Community, Labels, and Data Collection Plan to create and run a scraper on Wuthering Waves' Steam reviews to output a CSV that contains 200 cleaned English reviews (100 positive, 100 negative), having the fields of "label", "text", and "notes" for me to mark possible ambiguous edge cases.
