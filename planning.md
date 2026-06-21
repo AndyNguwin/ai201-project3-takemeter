@@ -60,4 +60,16 @@ Some reviews are genuinely ambiguous between the two labels because Steam review
 
   > "I love this game, but please please fix it so it works on steam deck - I was so excited to finally play via steam"
 
-### Annotation Rule
+### Ambiguous Annotation Rule
+If the reviewer ultimately appears to recommend the game despite flaws, it will be labeled Positive; otherwise, it will be labeled Negative.
+
+## Data Collection Plan
+
+### Data Source
+
+### Dataset Size
+
+### Handling Class Imbalance
+
+## Evaluation Metrics
+
