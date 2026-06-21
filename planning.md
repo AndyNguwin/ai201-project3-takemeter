@@ -1,4 +1,4 @@
-# Project Planning: Steam Review Classification
+# Steam Review Classification
 ## Community
 
 ### What community did you choose and why?
@@ -65,7 +65,8 @@ If the reviewer ultimately appears to recommend the game despite flaws, it will 
 
 ## Data Collection Plan
 
-- I will scrape 200 total reviews of Wuthering Waves on the Steam page. Each review will be English only and cleaned to have no odd, non-ASCII characters and reviews must be text-only. Because reviews are always categorized as "Positive" and "Negative", I can filter the scraping to scrape 100 of each label.
+- I will scrape 200 total reviews of Wuthering Waves on the Steam page. Each review will be English only and cleaned to have no odd, non-ASCII characters and reviews must be text-only. Because reviews are always categorized as "Positive" and "Negative", I can filter the scraping to scrape 100 of each label to avoid class imbalances in my dataset.
+- Because the reviews already come with labels that are provided by the users when writing the reviews, I won't be manually labelling the reviews myself. However, I will still read through each review to note done which reviews may be an ambiguous case that I think the classifier will struggle on. These will usually be when the text itself provides both positive and negative points OR low-quality/"meme"/"troll" content that provide no clear sentiment.
 
 ## Evaluation Metrics
 For evaluation, it's important to have the overall accuracy but also **precision**, **recall**, and **F1 score**. Extra metrics such as **precision**, **recall**, and **F1 score** provides extra details regarding the accuracy of the model, allowing us to understand what mistakes the model makes when classifying.
@@ -90,4 +91,5 @@ In my opinion, 75% is what I would consider an acceptable threshold, similar to 
   - F1 Score >= 0.85
   - Recall >= 0.85
 
+## AI Tool Plan
 
