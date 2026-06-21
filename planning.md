@@ -65,11 +65,29 @@ If the reviewer ultimately appears to recommend the game despite flaws, it will 
 
 ## Data Collection Plan
 
-### Data Source
-
-### Dataset Size
-
-### Handling Class Imbalance
+- I will scrape 200 total reviews of Wuthering Waves on the Steam page. Each review will be English only and cleaned to have no odd, non-ASCII characters and reviews must be text-only. Because reviews are always categorized as "Positive" and "Negative", I can filter the scraping to scrape 100 of each label.
 
 ## Evaluation Metrics
+For evaluation, it's important to have the overall accuracy but also **precision**, **recall**, and **F1 score**. Extra metrics such as **precision**, **recall**, and **F1 score** provides extra details regarding the accuracy of the model, allowing us to understand what mistakes the model makes when classifying.
+
+- **Accuracy per class**: Overall percentage of correct predictions per class.
+- **Precision**: Percentage of predictions for each class being correct. A high precision means that when the model assigns a label, it is usually correct.
+- **Recall**: Percentage of actual examples in each class that were identified correctly. A high recall means that the model successfully identified most examples belonging to that class. 
+- **F1 Score**: A measure of the balance between the model's precision and recall. High recall and low precision means the model biases a label when classifying. High precision and low recall means the model predicts a label only when it is highly confident.
+
+
+## Definition of Success
+
+In my opinion, 75% is what I would consider an acceptable threshold, similar to average grades (C range is usually 70-79%).
+
+- MINIMUM:
+  - Accuracy >= 75%
+  - F1 Score >= 0.75
+  - Recall >= 0.75
+ 
+- GOAL:
+  - Accuracy >= 85%
+  - F1 Score >= 0.85
+  - Recall >= 0.85
+
 
