@@ -1,4 +1,4 @@
-# Project Planning: Steam Review Classification
+# Steam Review Classification
 ## Community
 
 ### What community did you choose and why?
@@ -22,9 +22,9 @@ Some reviews are highly detailed and analytical, while others are short emotiona
 
 This classifier uses the following labels:
 
-### Label 1: Positive / Recommend
+### Label 1: Positive
 
-A review is labeled **Positive / Recommend** if its overall message indicates that the reviewer recommends the game to others, typically emphasizing enjoyable gameplay, satisfying features, or a worthwhile experience despite minor flaws.
+A review is labeled **Positive** if the overall review expresses satisfaction, enjoyment, or favorable opinions toward the game, even if minor criticisms are present.
 
 #### Example Reviews
 
@@ -38,9 +38,9 @@ A review is labeled **Positive / Recommend** if its overall message indicates th
 
 ---
 
-### Label 2: Negative / Not Recommend
+### Label 2: Negative
 
-A review is labeled **Negative / Not Recommend** if its overall message indicates that the reviewer does not recommend the game to others, typically emphasizing major flaws such as poor gameplay, technical issues, monetization concerns, or an unsatisfying experience.
+A review is labeled **Negative** if the overall review expresses dissatisfaction, frustration, or unfavorable opinions toward the game, even if some positive aspects are acknowledged.
 
 #### Example Reviews
 
@@ -54,22 +54,45 @@ A review is labeled **Negative / Not Recommend** if its overall message indicate
 
 ## Hard Edge Cases
 
-Some reviews are genuinely ambiguous between the two labels because Steam reviews can sometimes contain mixed sentiment. Reviews can talk about both the good and bad of a game or a user can state they love while pointing out a bad issue they faced.
+Some reviews are genuinely ambiguous between the two labels because Steam reviews can sometimes contain mixed sentiment. Reviews can talk about both the good and bad of a game or a user can state they love/dislike the game while pointing out positive experiences/bad issues they faced.
 
 ### Example Ambiguous Review
 
-  > "I love this game, but please please fix it so it works on steam deck - I was so excited to finally play via steam"
+  > "I love this game, but please please fix it so it works on steam deck - I was so excited to finally play via steam" (User labeled review as Positive)
 
 ### Ambiguous Annotation Rule
-If the reviewer ultimately appears to recommend the game despite flaws, it will be labeled Positive; otherwise, it will be labeled Negative.
+As stated in the taxonomy defined earlier:
+- If the general review is positive despite pointing out flaws or criticisms, the review will be labeled as Positive.
+- If the general review is negative despite pointing out highlights or enjoyable experiences, the review will be labeled as Negative.
 
 ## Data Collection Plan
 
-### Data Source
-
-### Dataset Size
-
-### Handling Class Imbalance
+- I will scrape 200 total reviews of Wuthering Waves on the Steam page. Each review will be English only and cleaned to have no odd, non-ASCII characters and reviews must be text-only. Because reviews are always categorized as "Positive" and "Negative", I can filter the scraping to scrape 100 of each label to avoid class imbalances in my dataset.
+- Because the reviews already come with labels that are provided by the users when writing the reviews, I won't be manually labelling the reviews myself. However, I will still read through each review to note done which reviews may be an ambiguous case that I think the classifier will struggle on, such as reviews that mentions both positive and negative talking points.
 
 ## Evaluation Metrics
+For evaluation, it's important to have the overall accuracy but also **precision**, **recall**, and **F1 score**. Extra metrics such as **precision**, **recall**, and **F1 score** provides extra details regarding the accuracy of the model, allowing us to understand what mistakes the model makes when classifying.
 
+- **Accuracy per class**: Overall percentage of correct predictions per class.
+- **Precision**: Percentage of predictions for each class being correct. A high precision means that when the model assigns a label, it is usually correct.
+- **Recall**: Percentage of actual examples in each class that were identified correctly. A high recall means that the model successfully identified most examples belonging to that class. 
+- **F1 Score**: A measure of the balance between the model's precision and recall. High recall and low precision means the model biases a label when classifying. High precision and low recall means the model predicts a label only when it is highly confident.
+
+
+## Definition of Success
+
+In my opinion, 75% is what I would consider an acceptable threshold, similar to average grades (C range is usually 70-79%).
+
+- MINIMUM:
+  - Accuracy >= 75%
+  - F1 Score >= 0.75
+  - Recall >= 0.75
+ 
+- GOAL:
+  - Accuracy >= 85%
+  - F1 Score >= 0.85
+  - Recall >= 0.85
+
+## AI Tool Plan
+- **Label Stress Test**: I'll give Claude my Labels section in the ``planning.md`` to stress test my label definitions by providing me example reviews that are ambiguous. I will then try to classify them myself using my labels to decide if I need to clarify/tighten the label definitions even more.
+- **Data Collection & Annotation Assistance**: I'll give Claude my ``planning.md``, specifically the Community, Labels, and Data Collection Plan to create and run a scraper on Wuthering Waves' Steam reviews to output a CSV that contains 200 cleaned English reviews (100 positive, 100 negative), having the fields of "label", "text", and "notes" for me to mark possible ambiguous edge cases.
