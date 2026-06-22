@@ -88,7 +88,6 @@ A review is labeled **negative** if the overall review expresses dissatisfaction
 ### Base Model
 
 - **Base model:** distilbert-base-uncased
-- **Reason for choosing it:** [Speed, size, compatibility, prior performance, class requirement, etc.]
 - **Classification task:** Binary classification
 
 ### Training Setup
