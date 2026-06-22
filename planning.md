@@ -1,9 +1,10 @@
 # Steam Review Classification
+
 ## Community
 
 ### What community did you choose and why?
 
-I chose **Steam game reviews for Wuthering Waves** as my online community. Steam is a popular game distribution platform for PC and allows users to submit reviews on the games they played with an associated recommendation label (ex. "Recommended" vs. "Not Recommended"). I specifically chose **Wuthering Waves** because it's a game that I enjoy playing myself.
+I chose **Steam game reviews for Wuthering Waves** as my online community. Steam is a popular game distribution platform for PC and allows users to submit reviews on the games they played with an associated sentiment label (ex. "Positive" vs. "Negative"). I specifically chose **Wuthering Waves** because it's a game that I enjoy playing myself.
 
 ### Why is this community a good fit for classification?
 
